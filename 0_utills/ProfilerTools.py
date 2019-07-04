@@ -55,7 +55,7 @@ class Timer(object):
         elif self.unit == 'min':
             conversion = 6 * pow(10, 10)
         else:
-            print("\n\nBad unit given to @timer, Valid units are:"
+            print("\n\nBad unit given to @Timer, Valid units are:"
                   "\n\tns, us, ms, s, min"
                   "\n\tUsing default ms")
             conversion = pow(10, 6)
