@@ -19,7 +19,7 @@ class MapColoringConstraint(Constraint):
         return assignment[self.region1] != assignment[self.region2]
 
 
-if __name__ == '__main__':
+def main():
     variables = [
         'W. Aus',
         'N. Ter',
@@ -48,5 +48,9 @@ if __name__ == '__main__':
         print('No Solution Found')
     else:
         print(solution)
+
+
+if __name__ == '__main__':
+    main()
 
 

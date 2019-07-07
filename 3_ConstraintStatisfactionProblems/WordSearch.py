@@ -82,7 +82,7 @@ class WordSearchConstraint(Constraint):
         return len(set(all_locations)) == len(all_locations)
 
 
-if __name__ == '__main__':
+def main():
     grid = Grid(15)
     words = [
         'Mathew',
@@ -111,4 +111,9 @@ if __name__ == '__main__':
                 (row, col) = (grid_locations[index].row, grid_locations[index].column)
                 grid.grid[row][col] = letter.upper()
         print(grid)
+
+
+if __name__ == '__main__':
+    main()
+
 

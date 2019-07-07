@@ -27,7 +27,7 @@ class SendMoreMoneyConstraint(Constraint):
         return True
 
 
-if __name__ == '__main__':
+def main():
     word_1 = 'SEND'
     word_2 = 'MORE'
     sum_word = 'MONEY'
@@ -45,3 +45,7 @@ if __name__ == '__main__':
         print('No Solution Found')
     else:
         print(solution)
+
+
+if __name__ == '__main__':
+    main()

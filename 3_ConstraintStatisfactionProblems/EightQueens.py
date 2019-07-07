@@ -19,7 +19,7 @@ class QueenConstraint(Constraint):
         return True
 
 
-if __name__ == '__main__':
+def main():
     columns = [x for x in range(1, 9)]
     rows = {}
     for column in columns:
@@ -31,3 +31,7 @@ if __name__ == '__main__':
         print('No Solution Found!')
     else:
         print(solution)
+
+
+if __name__ == '__main__':
+    main()
