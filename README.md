@@ -42,7 +42,7 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
     
     1. _Missionaries and Cannibals_
     
-    1. _Excerises_
+    1. _Exercises_
     
     
 1. ___Constraint Satisfaction Problems___
