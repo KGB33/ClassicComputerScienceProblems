@@ -37,14 +37,14 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
      
 1. ___Search Problems___
     1. _DNA Search_
-    > Searches for a Codon within a Gene using Linear and Binary Search. 
+        > Searches for a Codon within a Gene using Linear and Binary Search. 
     
     1. _Maze Solving_
-    > Generate, then solve a random maze using Depth-First, Breadth-First and, A* Search
+        > Generate, then solve a random maze using Depth-First, Breadth-First and, A* Search
     
     1. _Missionaries and Cannibals_
-    > Encode, then solve the Missionaries and Cannibals puzzle using 
-    Depth-First, Breadth-First and, A* Search
+        > Encode, then solve the Missionaries and Cannibals puzzle using 
+        Depth-First, Breadth-First and, A* Search
     
     1. _Exercises_
         1. Compares Binary Search and Linear Search performance.
@@ -71,8 +71,11 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
         > Finds what digits to replace the letters such that the equation
         holds true.
       
-    1. _Circuit Board Layout_
-        > Fit different sized NxM rectangles into an AxB rectangle.
+    1. _Exercises_
+        1. _Circuit Board Layout_
+            > Fit different sized NxM rectangles into an AxB rectangle.
+        1. _Suduku Solver_
+            > Solves Suduku Puzzles, albeit very slowly. The more clues provided the faster it. 
 
 
 
