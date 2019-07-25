@@ -1,5 +1,6 @@
-from heapq import heappush, heappop
 from collections import deque
+from heapq import heappop, heappush
+
 
 
 def linear_contains(iterable, key):

@@ -1,8 +1,12 @@
 from functools import lru_cache
-from csp import CSP, Constraint
-from math import ceil
 from itertools import product
+from math import ceil
 from time import time
+
+from csp import Constraint, CSP
+
+
+
 """
 From the Wikipedia page 'Mathematics of Sudoku"
 
@@ -44,7 +48,7 @@ class Vertex:
             return True
         if self.y == other.y:
             return True
-        if ceil((self.x + 1)/3) == ceil((other.x + 1)/3) and ceil((self.y + 1)/3) == ceil((other.y + 1)/3):
+        if ceil((self.x + 1) / 3) == ceil((other.x + 1) / 3) and ceil((self.y + 1) / 3) == ceil((other.y + 1) / 3):
             return True
         else:
             return False
