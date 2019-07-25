@@ -78,9 +78,14 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
             > Solves Suduku Puzzles, albeit very slowly. The more clues provided the faster it is.
             (17 Clues --> 32 hours, 36 Clues --> 5s)
             
- 
-
-
-
-    
+1. ___Graph Problems___
+    1. _The Basis_
+        > Classes for Weighted and Unweighted Graphs and edges for use in later problems.
+        
+    1. _HyperLoop_
+        > Demonstrating Weighted and Unweighted Graphs using a HyperLoop network.
+        Using BFS to find the shortest path between two Vertices
+        
+    1. _Minimum Spanning Tree_
+        > Implementing Jarník's Algorithm (AKA the Prim–Dijkstra algorithm).
   
