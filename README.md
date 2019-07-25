@@ -75,7 +75,10 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
         1. _Circuit Board Layout_
             > Fit different sized NxM rectangles into an AxB rectangle.
         1. _Suduku Solver_
-            > Solves Suduku Puzzles, albeit very slowly. The more clues provided the faster it. 
+            > Solves Suduku Puzzles, albeit very slowly. The more clues provided the faster it is.
+            (17 Clues --> 32 hours, 36 Clues --> 5s)
+            
+ 
 
 
 
