@@ -90,5 +90,5 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
         > Implementing Jarník's Algorithm (AKA the Prim–Dijkstra algorithm).
         
     1. _Dijkstra's Algorithum_
-        > > Implementing Dijkstra's Algorithm.
+        > Implementing Dijkstra's Algorithm.
   
