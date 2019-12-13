@@ -3,7 +3,7 @@ from secrets import token_bytes
 
 def random_key(length):
     tb = token_bytes(length)
-    return int.from_bytes(tb, 'big')
+    return int.from_bytes(tb, "big")
 
 
 def encrypt(original):
@@ -22,7 +22,7 @@ def encrypt(original):
     else:
         original_bytes = original
     dummy = random_key(len(original_bytes))
-    original_key = int.from_bytes(original_bytes, 'big')
+    original_key = int.from_bytes(original_bytes, "big")
     encrypted = original_key ^ dummy
     return dummy, encrypted
 
@@ -33,11 +33,10 @@ def decrypt(key1, key2):
     is done to avoid a 1-off error
     """
     decrypted = key1 ^ key2
-    return decrypted.to_bytes((decrypted.bit_length() + 7) // 8, 'big').decode()
+    return decrypted.to_bytes((decrypted.bit_length() + 7) // 8, "big").decode()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     key1, key2 = encrypt("A Secret Message")
-    print(f'Key 1: {key1}, Key 2: {key2}')
-    print(f'Decrypted: {decrypt(key1, key2)}')
-
+    print(f"Key 1: {key1}, Key 2: {key2}")
+    print(f"Decrypted: {decrypt(key1, key2)}")

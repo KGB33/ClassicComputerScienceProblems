@@ -5,7 +5,6 @@ from csp import CSP, Constraint
 
 
 class GridLocation:
-
     def __init__(self, row, column):
         self.row = row
         self.column = column
@@ -16,8 +15,7 @@ class GridLocation:
 
     def __next__(self):
         try:
-            switch = {0: self.row,
-                      1: self.column}
+            switch = {0: self.row, 1: self.column}
             result = switch[self.i]
             self.i += 1
             return result
@@ -26,17 +24,19 @@ class GridLocation:
 
 
 class Grid:
-
     def __init__(self, grid_size):
-        self.grid = [[choice(ascii_uppercase) for _ in range(grid_size)] for __ in range(grid_size)]
+        self.grid = [
+            [choice(ascii_uppercase) for _ in range(grid_size)]
+            for __ in range(grid_size)
+        ]
         self.grid_size = grid_size
 
     def __str__(self):
-        result = ''
+        result = ""
         for row in self.grid:
             for letter in row:
-                result += letter + ' '
-            result += '\n'
+                result += letter + " "
+            result += "\n"
         return result
 
     @lru_cache(maxsize=None)
@@ -54,19 +54,22 @@ class Grid:
                     domain.append([GridLocation(row, c) for c in columns])
                     if row + word_length <= height:
                         #  Diagonal towards bottom right
-                        domain.append([GridLocation(r, column + (r - row)) for r in rows])
+                        domain.append(
+                            [GridLocation(r, column + (r - row)) for r in rows]
+                        )
 
                 if row + word_length <= height:
                     #  Top to bottom
                     domain.append([GridLocation(r, column) for r in rows])
                     if column - word_length >= 0:
                         #  Diagonal towards bottom left
-                        domain.append([GridLocation(r, column - (r - row)) for r in rows])
+                        domain.append(
+                            [GridLocation(r, column - (r - row)) for r in rows]
+                        )
         return domain
 
 
 class WordSearchConstraint(Constraint):
-
     def __init__(self, words):
         super().__init__(words)
         self.words = words
@@ -85,14 +88,14 @@ class WordSearchConstraint(Constraint):
 def main():
     grid = Grid(15)
     words = [
-        'Mathew',
-        'Joe',
-        'Marry',
-        'Sarah',
-        'Sally',
-        'constraint',
-        'satisfaction',
-        'problem',
+        "Mathew",
+        "Joe",
+        "Marry",
+        "Sarah",
+        "Sally",
+        "constraint",
+        "satisfaction",
+        "problem",
     ]
     locations = {}
     for word in words:
@@ -101,7 +104,7 @@ def main():
     csp.add_constraint(WordSearchConstraint(words))
     solution = csp.backtracking_search()
     if solution is None:
-        print('No Solution Found')
+        print("No Solution Found")
     else:
         for word, grid_locations in solution.items():
             #  Randomly reverse words 1/2 the time
@@ -113,7 +116,5 @@ def main():
         print(grid)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
-

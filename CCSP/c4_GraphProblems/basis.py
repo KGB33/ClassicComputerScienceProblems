@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 
 
-
 @dataclass
 class Edge:
     u: int
@@ -11,11 +10,10 @@ class Edge:
         return Edge(self.v, self.u)
 
     def __str__(self):
-        return f'{self.u} --> {self.v}'
+        return f"{self.u} --> {self.v}"
 
 
 class Graph:
-
     def __init__(self, vertices):
         self._vertices = vertices
         self._edges = [[] for _ in vertices]
@@ -68,9 +66,9 @@ class Graph:
         return self._edges[self.index_of(vertex)]
 
     def __str__(self):
-        desc = ''
+        desc = ""
         for i in range(self.vertex_count):
-            desc += f'{self.vertex_at(i)} --> {self.neighbors_for_index(i)}\n'
+            desc += f"{self.vertex_at(i)} --> {self.neighbors_for_index(i)}\n"
         return desc
 
 
@@ -94,11 +92,10 @@ class WeightedEdge(Edge):
         return self.weight > other.weight
 
     def __str__(self):
-        return f'{self.u} ({self.weight}) --> {self.v}'
+        return f"{self.u} ({self.weight}) --> {self.v}"
 
 
 class WeightedGraph(Graph):
-
     def add_edge_by_indices(self, u, v, weight):
         edge = WeightedEdge(u, v, weight)
         self.add_edge(edge)
@@ -115,11 +112,13 @@ class WeightedGraph(Graph):
         return weight_tuples
 
     def __str__(self):
-        desc = ''
+        desc = ""
         for i in range(self.vertex_count):
-            desc += f'{self.vertex_at(i)} --> {self.neighbors_for_index_with_weights(i)}\n'
+            desc += (
+                f"{self.vertex_at(i)} --> {self.neighbors_for_index_with_weights(i)}\n"
+            )
         return desc
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

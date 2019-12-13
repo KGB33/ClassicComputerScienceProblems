@@ -41,7 +41,7 @@ def hanoi(begin, end, temp, n):
         hanoi(temp, end, begin, n - 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     num_disks = 3
     tower_a = Stack()
     tower_b = Stack()
@@ -50,6 +50,6 @@ if __name__ == '__main__':
         tower_a.push(i)
 
     hanoi(tower_a, tower_c, tower_b, num_disks)
-    print(f'Tower A: {tower_a}')
-    print(f'Tower B: {tower_b}')
-    print(f'Tower C: {tower_c}')
+    print(f"Tower A: {tower_a}")
+    print(f"Tower B: {tower_b}")
+    print(f"Tower C: {tower_c}")

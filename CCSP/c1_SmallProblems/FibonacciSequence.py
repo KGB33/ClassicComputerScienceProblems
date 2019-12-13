@@ -66,9 +66,9 @@ def fib_6(n):
         yield f_1
 
 
-if __name__ == '__main__':
-    print(f'Fib 3: {fib_3(50)}')
-    print(f'Fib 4: {fib_4(50)}')
-    print(f'Fib 5: {fib_5(50)}')
+if __name__ == "__main__":
+    print(f"Fib 3: {fib_3(50)}")
+    print(f"Fib 4: {fib_4(50)}")
+    print(f"Fib 5: {fib_5(50)}")
     for i in fib_6(50):
-        print(f'Fib 6, {i}')
+        print(f"Fib 6, {i}")

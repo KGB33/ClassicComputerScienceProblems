@@ -16,7 +16,6 @@ class Constraint(ABC):
 
 
 class CSP:
-
     def __init__(self, variables, domains):
         self.variables = variables
         self.domains = domains
@@ -24,12 +23,12 @@ class CSP:
         for var in self.variables:
             self.constraints[var] = []
             if var not in self.domains:
-                raise LookupError(f'Every Var needs a Domain. {var}')
+                raise LookupError(f"Every Var needs a Domain. {var}")
 
     def add_constraint(self, constraint):
         for var in constraint.variables:
             if var not in self.variables:
-                raise LookupError(f'Variable in Constraint not in CSP. {var}')
+                raise LookupError(f"Variable in Constraint not in CSP. {var}")
             else:
                 self.constraints[var].append(constraint)
 
@@ -56,5 +55,5 @@ class CSP:
         return None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

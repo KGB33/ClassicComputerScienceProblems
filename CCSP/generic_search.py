@@ -2,7 +2,6 @@ from collections import deque
 from heapq import heappop, heappush
 
 
-
 def linear_contains(iterable, key):
     for item in iterable:
         if item == key:
@@ -25,7 +24,6 @@ def binary_contains(iterable, key):
 
 
 class Stack:
-
     def __init__(self):
         self._container = []
 
@@ -44,7 +42,6 @@ class Stack:
 
 
 class Queue:
-
     def __init__(self):
         self._container = deque()
 
@@ -66,7 +63,6 @@ class Queue:
 
 
 class PriorityQueue:
-
     def __init__(self):
         self._container = []
 
@@ -88,7 +84,6 @@ class PriorityQueue:
 
 
 class Node:
-
     def __init__(self, state, parent, cost=0.0, heuristic=0.0):
         self.state = state
         self.parent = parent
@@ -100,7 +95,9 @@ class Node:
 
 
 def node_to_path(node):
-    path = [node.state, ]
+    path = [
+        node.state,
+    ]
     while node.parent is not None:
         node = node.parent
         path.append(node.state)
@@ -112,7 +109,9 @@ def dfs(initial, goal_test, successors, count=False):
     frontier = Stack()
     frontier.push(Node(initial, None))
 
-    explored = {initial, }
+    explored = {
+        initial,
+    }
     counter = 0
 
     while not frontier.empty:
@@ -136,7 +135,9 @@ def bfs(initial, goal_test, successors, count=False):
     frontier = Queue()
     frontier.push(Node(initial, None))
 
-    explored = {initial, }
+    explored = {
+        initial,
+    }
     counter = 0
 
     while not frontier.empty:
@@ -160,7 +161,9 @@ def a_star(initial, goal_test, successors, heuristic, count=False):
     frontier = PriorityQueue()
     frontier.push(Node(initial, None, 0.0, heuristic(initial)))
 
-    explored = {initial: 0.0, }
+    explored = {
+        initial: 0.0,
+    }
     counter = 0
 
     while not frontier.empty:
@@ -178,5 +181,3 @@ def a_star(initial, goal_test, successors, heuristic, count=False):
                 explored[child] = new_cost
                 frontier.push(Node(child, current_node, new_cost, heuristic(child)))
     return None
-
-

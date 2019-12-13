@@ -7,20 +7,20 @@ Glossary:
     Codon: 3 Nucleotides
     Gene: Multiple Codons
 """
-Nucleotide = IntEnum('Nucleotide', ('A', 'C', 'G', 'T'))
+Nucleotide = IntEnum("Nucleotide", ("A", "C", "G", "T"))
 
 
 def main():
-    gene_str = 'ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCC'
+    gene_str = "ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCC"
     my_gene = string_to_gene(gene_str)
     sorted_gene = sorted(my_gene)
     in_gene = (Nucleotide.C, Nucleotide.C, Nucleotide.C)
     not_in_gene = (Nucleotide.A, Nucleotide.C, Nucleotide.T)
-    print(f'Linear Search (pass): {linear_contains(my_gene, in_gene)}')
-    print(f'Linear Search (fail): {linear_contains(my_gene, not_in_gene)}')
+    print(f"Linear Search (pass): {linear_contains(my_gene, in_gene)}")
+    print(f"Linear Search (fail): {linear_contains(my_gene, not_in_gene)}")
     print()
-    print(f'Binary Search (pass): {binary_contains(sorted_gene, in_gene)}')
-    print(f'Binary Search (fail): {binary_contains(sorted_gene, not_in_gene)}')
+    print(f"Binary Search (pass): {binary_contains(sorted_gene, in_gene)}")
+    print(f"Binary Search (fail): {binary_contains(sorted_gene, not_in_gene)}")
     print()
 
 
@@ -33,8 +33,8 @@ def grouper(iterable, n, fillvalue=None):
 
 def string_to_gene(s):
     gene = []
-    for i in grouper(s, 3, 'X'):
-        if 'X' in i:
+    for i in grouper(s, 3, "X"):
+        if "X" in i:
             return gene
         codon = tuple([Nucleotide[n] for n in i])
         gene.append(codon)
@@ -66,6 +66,5 @@ def binary_contains(gene, key_codon):
     return False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-

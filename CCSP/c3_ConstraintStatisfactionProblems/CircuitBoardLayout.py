@@ -4,7 +4,6 @@ from itertools import product
 
 
 class CircuitBoardLocation:
-
     def __init__(self, row, column):
         self.row = row
         self.column = column
@@ -15,8 +14,7 @@ class CircuitBoardLocation:
 
     def __next__(self):
         try:
-            switch = {0: self.row,
-                      1: self.column}
+            switch = {0: self.row, 1: self.column}
             result = switch[self.i]
             self.i += 1
             return result
@@ -24,21 +22,20 @@ class CircuitBoardLocation:
             raise StopIteration
 
     def __str__(self):
-        return f'Row: {self.row}, Column: {self.column}'
+        return f"Row: {self.row}, Column: {self.column}"
 
 
 class CircuitBoard:
-
     def __init__(self, grid_size):
-        self.grid = [[' ' for _ in range(grid_size)] for __ in range(grid_size)]
+        self.grid = [[" " for _ in range(grid_size)] for __ in range(grid_size)]
         self.grid_size = grid_size
 
     def __str__(self):
-        result = ''
+        result = ""
         for row in self.grid:
             for letter in row:
-                result += letter + ' '
-            result += '\n'
+                result += letter + " "
+            result += "\n"
         return result
 
     @lru_cache(maxsize=None)
@@ -55,15 +52,21 @@ class CircuitBoard:
                     #  Left to right
                     if row + circuit_height <= height:
                         # Top to bottom
-                        domain.append([CircuitBoardLocation(r, c) for r, c in product(rows, columns)])
+                        domain.append(
+                            [
+                                CircuitBoardLocation(r, c)
+                                for r, c in product(rows, columns)
+                            ]
+                        )
         if recurse:
             # Rotate boxes 90degrees
-            return domain + self.generate_domain(circuit_length, circuit_height, recurse=False)
+            return domain + self.generate_domain(
+                circuit_length, circuit_height, recurse=False
+            )
         return domain
 
 
 class CircuitBoardConstraint(Constraint):
-
     def __init__(self, boxes):
         super().__init__(boxes)
         self.boxes = boxes
@@ -80,10 +83,10 @@ class CircuitBoardConstraint(Constraint):
 
 
 def print_grid(solution, grid_size):
-    grid = [[' ' * 3 for _ in range(grid_size)] for __ in range(grid_size)]
+    grid = [[" " * 3 for _ in range(grid_size)] for __ in range(grid_size)]
     for box, grid_locations in solution.items():
         for gl in grid_locations:
-            grid[gl.row][gl.column] = f'{chr(int(box)+1000):^3}'
+            grid[gl.row][gl.column] = f"{chr(int(box)+1000):^3}"
     for row in grid:
         print(row)
 
@@ -93,20 +96,20 @@ def main():
     CB = CircuitBoard(GRID_SIZE)
     boxes = (
         # From Book
-        '44',
-        '33',
-        '22',
-        '61',
-        '25',
+        "44",
+        "33",
+        "22",
+        "61",
+        "25",
         # More Squares
-        '31',
-        '17',
-        '23',
-        '11',
-        '41',
-        '32',
-        '51',
-        '14',
+        "31",
+        "17",
+        "23",
+        "11",
+        "41",
+        "32",
+        "51",
+        "14",
         # 9x9 area is full
     )
     locations = {}
@@ -116,14 +119,16 @@ def main():
     csp.add_constraint(CircuitBoardConstraint(boxes))
     solution = csp.backtracking_search()
     if solution is None:
-        print('No Solution Found')
+        print("No Solution Found")
     else:
         for box, grid_locations in solution.items():
-            print(f'Box: {box},'
-                  f'Grid Location: {[gl.__str__() for gl in grid_locations]},'
-                  f'Area: {len(grid_locations)}\n')
+            print(
+                f"Box: {box},"
+                f"Grid Location: {[gl.__str__() for gl in grid_locations]},"
+                f"Area: {len(grid_locations)}\n"
+            )
     print_grid(solution, GRID_SIZE)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -2,7 +2,6 @@ from csp import CSP, Constraint
 
 
 class QueenConstraint(Constraint):
-
     def __init__(self, col):
         super().__init__(col)
         self.columns = col
@@ -28,10 +27,10 @@ def main():
     csp.add_constraint(QueenConstraint(columns))
     solution = csp.backtracking_search()
     if solution is None:
-        print('No Solution Found!')
+        print("No Solution Found!")
     else:
         print(solution)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

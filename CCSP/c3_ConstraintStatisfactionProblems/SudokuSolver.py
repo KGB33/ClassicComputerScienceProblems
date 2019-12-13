@@ -6,7 +6,6 @@ from time import time
 from csp import Constraint, CSP
 
 
-
 """
 From the Wikipedia page 'Mathematics of Sudoku"
 
@@ -48,13 +47,15 @@ class Vertex:
             return True
         if self.y == other.y:
             return True
-        if ceil((self.x + 1) / 3) == ceil((other.x + 1) / 3) and ceil((self.y + 1) / 3) == ceil((other.y + 1) / 3):
+        if ceil((self.x + 1) / 3) == ceil((other.x + 1) / 3) and ceil(
+            (self.y + 1) / 3
+        ) == ceil((other.y + 1) / 3):
             return True
         else:
             return False
 
     def __str__(self):
-        return f'Vertex: ({self.x}, {self.y})'
+        return f"Vertex: ({self.x}, {self.y})"
 
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
@@ -73,7 +74,6 @@ class Graph:
 
 
 class ColoringConstraint(Constraint):
-
     def __init__(self, vertices):
         super().__init__(vertices)
         self.vertices = vertices
@@ -175,8 +175,8 @@ def make_clues_easy():
 def main():
     grid = Graph()
     colors = {}
-    clues = make_min_clues()
-    # clues = make_clues_easy()
+    # clues = make_min_clues() # Takes a long! time
+    clues = make_clues_easy()
     for vertex in grid.vertices:
         colors[vertex] = [c for c in range(1, 10)]
 
@@ -184,13 +184,13 @@ def main():
     csp.add_constraint(ColoringConstraint(grid.vertices))
     before = time()
     solution = csp.backtracking_search(assignment=clues)
-    print(f'Time Elapsed: {time() - before:.3}s')
+    print(f"Time Elapsed: {time() - before:.3}s")
     if solution is None:
-        print('No Solution Found')
+        print("No Solution Found")
     else:
         for vert, color in solution.items():
-            print(vert, f'Color: {color}')
+            print(vert, f"Color: {color}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,3 +1,6 @@
 /venv/
+.venv
 .idea
+CCSP.egg-info
+.vscode
 __pycache__
