@@ -24,15 +24,21 @@ class SendMoreMoney2(Chromosome):
 
     def fitness(self):
         *smm, diff = self.get_smmd_vals()
-        return 1 / ( diff + 1)
+        return 1 / (diff + 1)
 
     def crossover(self, other):
         child1 = deepcopy(self)
         child2 = deepcopy(other)
         idx1, idx2 = sample(range(len(self.letters)), k=2)
         l1, l2 = child1.letters[idx1], child2.letters[idx2]
-        child1.letters[child1.letters.index(l2)], child1.letters[idx2] = child1.letters[idx2], l2
-        child2.letters[child2.letters.index(l1)], child2.letters[idx1] = child2.letters[idx1], l1
+        child1.letters[child1.letters.index(l2)], child1.letters[idx2] = (
+            child1.letters[idx2],
+            l2,
+        )
+        child2.letters[child2.letters.index(l1)], child2.letters[idx1] = (
+            child2.letters[idx1],
+            l1,
+        )
         return child1, child2
 
     def mutate(self):
@@ -41,17 +47,23 @@ class SendMoreMoney2(Chromosome):
 
     def __str__(self):
         send, more, money, diff = self.get_smmd_vals()
-        return f'{send=:04d} + {more=:04d} = {money=:05d} --- {diff=}'
+        return f"{send=:04d} + {more=:04d} = {money=:05d} --- {diff=}"
 
     @classmethod
-    def random_instance(cls, letters=('s', 'e', 'n', 'd', 'm', 'o', 'r', 'y', '', '')):
+    def random_instance(cls, letters=("s", "e", "n", "d", "m", "o", "r", "y", "", "")):
         letters = list(letters)
         shuffle(letters)
         return SendMoreMoney2(letters)
 
+
 if __name__ == "__main__":
     init_pop = [SendMoreMoney2.random_instance() for _ in range(1000)]
-    ga = GeneticAlgorithum(initial_population=init_pop, threshold=1.0, max_generations=1000, mutation_chance=0.2, selection_type=GeneticAlgorithum.SelectionType.ROULETTE)
+    ga = GeneticAlgorithum(
+        initial_population=init_pop,
+        threshold=1.0,
+        max_generations=1000,
+        mutation_chance=0.2,
+        selection_type=GeneticAlgorithum.SelectionType.ROULETTE,
+    )
     result = ga.run()
     print(result)
-        
