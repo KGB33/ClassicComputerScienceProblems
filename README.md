@@ -12,15 +12,14 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
 1. ___Small Problems___
     1. _Fibonacci Sequence_
         > Calculating the Fibonacci Sequence using various techniques such as 
-        recursion, memoization, iteration and generators.
+        recursion, memoization, iteration, and generators.
         
     1. _Trivial Compression_
-        > Compressing genes by storing the eight bit String Nucleotides ('A', 'C','G' or, 'T')
-        as a two bit bit-string (0b00 to 0b11). 
+        > Compressing genes by storing the eight-bit String Nucleotides ('A', 'C','G' or, 'T')
+        as a two-bit bit-string (0b00 to 0b11). 
     
     1. _Unbreakable Encryption_
-        > Encrypts by XORing a data bit-string with random
-        bit-string of the same length. 
+        > Encrypts by XORing a data bit-string with random bit-string of the same length. 
     
     1. _Calculating Pi_
         > A Conversion of the Leibniz formula into Python.
@@ -69,7 +68,7 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
     
     1. _SEND+MORE=MONEY_
         > Finds what digits to replace the letters such that the equation
-        holds true.
+        holds.
       
     1. _Exercises_
         1. _Circuit Board Layout_
@@ -91,4 +90,18 @@ Solutions to 'Classic Computer Problems in Python' by David Kopec
         
     1. _Dijkstra's Algorithum_
         > Implementing Dijkstra's Algorithm.
-  
+        
+        
+        
+1. ___Genetic Algorithms___
+    1. _The Basis_
+        > Base class for the Chromosomes and the Genetic Algorithm implementation.
+        
+    1. _Simple Equation_
+        > Models `f(x, y) = 6x - x² + 4y - y²` as a chromosome, then finds the maximum `f(3, 2) = 13`.
+                
+    1. _SEND+MORE=MONEY v2_
+        > Finds what digits to replace the letters such that the equation holds. The Genetic Algorithm approach finds more solutions than the constraint satisfaction approach.
+        
+    1. _Optimizing List Compression_
+        > This application uses a genetic algorithm to find the most efficient order to compress a list. 
