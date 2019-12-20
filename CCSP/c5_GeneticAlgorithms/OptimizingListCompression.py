@@ -73,4 +73,3 @@ if __name__ == "__main__":
     result = ga.run()
     print(f"\n{result}")
     print(f"Bytes to Beat: {getsizeof(compress(dumps(PEOPLE)))}")
-
